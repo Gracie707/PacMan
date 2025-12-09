@@ -9,7 +9,7 @@ class Map
 {  
   private:
     int cellSize;
-    vector <string> skecth; //Vector linea del mapa
+    vector <string> sketch; //Vector linea del mapa
 
   public:
     Map(int cellSize);
