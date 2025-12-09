@@ -1,4 +1,4 @@
-#include <SFML/Audio.hpp>
+/*#include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 using namespace sf;
 int main()
@@ -26,20 +26,20 @@ int main()
         return EXIT_FAILURE;
     Text text("Hello SFML", font, 50);*/
     // Load a music to play
-   	SoundBuffer buffer;
+   	/*SoundBuffer buffer;
 	if(!buffer.loadFromFile("audio/pacman_menus.WAV")){
 	system("echo No se pudo cargar la audio&pause");
 		return EXIT_FAILURE;
 		}
 	Sound sound;
 	sound.setBuffer(buffer);
-	// Variable de control para el bucle de menú
+	// Variable de control para el bucle de menÃº
 	sound.setLoop(true);
 	sound.play();
 	bool in_menu = true; 
 	Event event;
 
-	// BUCLE DE MENÚ: El audio se reproduce aquí hasta que se presione una tecla.
+	// BUCLE DE MENÃš: El audio se reproduce aquÃ­ hasta que se presione una tecla.
 	while (window.isOpen() && in_menu)
 	{
 		// Procesar eventos
@@ -53,7 +53,7 @@ int main()
 			}
 			if (event.type == Event::KeyPressed)
 			{
-				in_menu = false; // Salir del bucle de menú
+				in_menu = false; // Salir del bucle de menÃº
 			}
 		}
 		window.clear();
@@ -82,4 +82,4 @@ int main()
         window.display();
     }
     return EXIT_SUCCESS;
-}
+}*/
