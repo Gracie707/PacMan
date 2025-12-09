@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
+#include <cstdlib>
 #include "Menu.hpp"
 #include "Map.hpp"
 using namespace sf;
