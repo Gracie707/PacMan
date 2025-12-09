@@ -1,41 +1,45 @@
-#include "Main.hpp"
+#include "Map.hpp"
 using namespace std;
 using namespace sf;
 
 Map::Map(int cellSize) : cellSize(cellSize) {}
 
 
-void Map::load(vector <string> &skecth)
-{  this-> skecth = skecth;
+void Map::load(const vector <string> &sketch)
+{  this-> sketch = sketch;
 }
 
-void Map::draw()
-{  int x = 0, y=0; //fila y, columna x
-   for(y = 0 ; y < skecth.size() ; y++)
-   {  for(x=0; x < skecth[y].size() ; x++)
+void Map::draw(RenderWindow &window)
+{  
+	RectangleShape wall;
+	CircleShape pellet;
+
+int x = 0, y=0; //fila y, columna x
+   for(y = 0 ; y < sketch.size() ; y++)
+   {  for(x=0; x < sketch[y].size() ; x++)
       {
-        char c = skect[y][x];
+        char c = sketch[y][x];
         
         if( c == '#')
         {
-          RectangleShape Wall(Vector2f(cellSize,cellSize));
+          RectangleShape wall(Vector2f(cellSize,cellSize));
            wall.setPosition(x * cellSize, y * cellSize);
            wall.setFillColor(Color::Blue);
            window.draw(wall);
         }
         else if (c == '.')
         {
-            CircleShape pellet(Vector2f(cellSize/8)); 
+            CircleShape pellet(cellSize/8.0f); 
             pellet.setPosition(
               x * cellSize + cellSize/2 - pellet.getRadius(),
-              y * cellSize + cellSize/2 - pellet.getRadius(),
+              y * cellSize + cellSize/2 - pellet.getRadius()
               );
             pellet.setFillColor(Color::White);
             window.draw(pellet);
         }
         else if (c == 'o')
         {  
-          CircleShape pellet(Vector2f(cellSize/4)); 
+          CircleShape pellet(cellSize/4.0f); 
             pellet.setPosition(
               x * cellSize + cellSize/2 - pellet.getRadius(),
               y * cellSize + cellSize/2 - pellet.getRadius()
@@ -45,7 +49,7 @@ void Map::draw()
         }
         else if(c == 'P')
         {  
-          CircleShape pacman(Vector2f(cellSize/2)); 
+          CircleShape pacman(cellSize/2.0f); 
             pacman.setPosition(x * cellSize, y * cellSize);
             pacman.setFillColor(Color::Yellow);
             window.draw(pacman);
@@ -55,4 +59,3 @@ void Map::draw()
 }
           
        
-
